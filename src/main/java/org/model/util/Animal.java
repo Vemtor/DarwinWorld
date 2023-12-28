@@ -1,13 +1,18 @@
 package org.model.util;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class Animal {
+
+    private static final int energyNeededToReproduce = 10;
     private Vector2d position;
     private int energy;
+    private ArrayList<Animal> children;
     private MapDirection direction;
     private int eatenFoodCounter;
-    private int birthDate;
+    private final int birthDate;
     private int deadDate;
     private boolean isAlive;
     private Genotype genotype;
@@ -23,6 +28,7 @@ public class Animal {
     public Animal(Vector2d position, int energy, Genotype genotype){
         this(position,energy,genotype,0);
     }
+
 
 
     public int getEnergy() {
@@ -41,6 +47,10 @@ public class Animal {
         return genotype;
     }
 
+    public ArrayList<Animal> getChildren() {
+        return children;
+    }
+
     public int getDeadDate() {
         return deadDate;
     }
@@ -56,4 +66,21 @@ public class Animal {
     public boolean getisAlive(){
         return isAlive;
     }
+
+    public boolean canReproduce(){
+        return this.energy >= energyNeededToReproduce && isAlive;
+    }
+
+    public boolean canMove(){
+     //TODO
+     return true;
+    }
+
+
+
+    public void killAnimal() {
+        if (isAlive) isAlive = false;
+    }
+
+
 }
