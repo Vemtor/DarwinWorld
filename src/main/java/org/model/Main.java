@@ -1,19 +1,43 @@
 package org.model;
 
+
+import org.model.util.Animal;
+import org.model.util.Genotype;
+import org.model.util.Vector2d;
+
+import java.util.ArrayList;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        ArrayList<Integer> geno1 = new ArrayList<Integer>();
+        geno1.add(0);
+        geno1.add(1);
+        geno1.add(2);
+        geno1.add(3);
+        geno1.add(4);
+        geno1.add(5);
+        geno1.add(6);
+        geno1.add(7);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        ArrayList<Integer> geno2 = new ArrayList<Integer>();
+        geno2.add(0);
+        geno2.add(1);
+        geno2.add(2);
+        geno2.add(3);
+        geno2.add(4);
+        geno2.add(5);
+        geno2.add(6);
+        geno2.add(7);
+
+
+
+        Animal animal1 = new Animal(new Vector2d(1,1),20,geno1,0);
+        Animal animal2 = new Animal(new Vector2d(1,1),30,geno2,0);
+        Genotype genotype12 = new Genotype(animal1, animal2, 8);
+
+        System.out.println(genotype12.getGenom());
     }
 }

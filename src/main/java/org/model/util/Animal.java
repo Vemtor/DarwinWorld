@@ -15,18 +15,19 @@ public class Animal {
     private final int birthDate;
     private int deadDate;
     private boolean isAlive;
-    private Genotype genotype;
+    private List<Integer> genoList;
 
 
-    public Animal(Vector2d position, int energy, Genotype genotype, int birthDate){
+
+    public Animal(Vector2d position, int energy, List<Integer> genoList, int birthDate){
         this.position = position;
         this.energy = energy;
-        this.genotype = genotype;
+        this.genoList = genoList;
         this.birthDate = birthDate;
     }
 
-    public Animal(Vector2d position, int energy, Genotype genotype){
-        this(position,energy,genotype,0);
+    public Animal(Vector2d position, int energy, List<Integer> genoList){
+        this(position,energy,genoList,0);
     }
 
 
@@ -43,8 +44,8 @@ public class Animal {
         return eatenFoodCounter;
     }
 
-    public Genotype getGenotype() {
-        return genotype;
+    public List<Integer> getGenotype() {
+        return genoList;
     }
 
     public ArrayList<Animal> getChildren() {
