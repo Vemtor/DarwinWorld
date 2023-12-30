@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Genotype {
 
-    private final int genLength = 7;
+    private final int genLength = 8;
 
     private List<Integer> genom;
 
@@ -16,6 +16,18 @@ public class Genotype {
     }
 
 
+
+    public List<Integer> randomGenom(){
+        Random mutNum = new Random();
+        List<Integer> randGenomList = new ArrayList<>();
+        for(int i = 0; i<genLength; i++){
+            int genomDigit = mutNum.nextInt(genLength);
+            randGenomList.add(genomDigit);
+
+        }
+
+        return randGenomList;
+    }
 
 
 
@@ -36,26 +48,45 @@ public class Genotype {
 
         List<Integer> GenoChild = new ArrayList<>();
         int j = 0;
+
         if (randomNum > 0.5) {
-            for(int i = 0; i<g1length; i++){
-                GenoChild.add(g1.get(i));
+            //prawa strona silniejszego
+            if(e1>e2){
+                for(int i=0; i<=g1length; i++){
+                    GenoChild.add(g2.get(i));
+                }
+                for(int i=genLength-g2length; i<genLength; i++){
+                    GenoChild.add(g1.get(i));
+                }
+            } else{
+                for(int i=0; i<=g1length; i++){
+                    GenoChild.add(g1.get(i));
+                }
+                for(int i=genLength-g2length; i<genLength; i++){
+                    GenoChild.add(g2.get(i));
+                }
+            }
+        } else{
+            if(e1>e2) {
+                //teraz pierwszy jest silniejszy i bierzemy jego lewą strone
+                for (int i = 0; i <=g1length; i++) {
+                    GenoChild.add(g1.get(i));
+                }
+
+                for(int i = 0; i<genLength-g2length; i++){
+                    GenoChild.add(g2.get(i));
+                }
+            } else {
+                for(int i = 0; i<=g2length; i++){
+                    GenoChild.add(g2.get(i));
+                }
+                for(int i = genLength-g1length; i<genLength; i++){
+                    GenoChild.add(g1.get(i));
+                }
 
             }
 
-            for(int i = 0; i<=g2length; i++){
-                GenoChild.add(g2.get(i));
 
-            }
-        }else {
-            for (int i = 0; i < g2length; i++) {
-                GenoChild.add(g2.get(i));
-
-            }
-
-
-            for (int i = 0; i <= g1length; i++) {
-                GenoChild.add(g1.get(i));
-            }
         }
 
 
@@ -68,7 +99,7 @@ public class Genotype {
 
         for(int i = 0; i<=mutCnt; i++){
             int mutateIndex = mutInd.nextInt(genLength);
-            int mutNumberSwap = mutNumber.nextInt(8);
+            int mutNumberSwap = mutNumber.nextInt(genLength);
             GenoChild.set(mutateIndex, mutNumberSwap);
         }
 
@@ -82,7 +113,21 @@ public class Genotype {
 
     }
 
+    public Genotype(){
+        this.genom = randomGenom();
+    }
+
+
+
     public List<Integer> getGenom() {
         return genom;
     }
+
+
+
+
+
+
+
 }
+

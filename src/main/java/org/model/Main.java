@@ -22,22 +22,28 @@ public class Main {
         geno1.add(6);
         geno1.add(7);
 
+
         ArrayList<Integer> geno2 = new ArrayList<Integer>();
-        geno2.add(0);
-        geno2.add(1);
-        geno2.add(2);
-        geno2.add(3);
-        geno2.add(4);
-        geno2.add(5);
-        geno2.add(6);
-        geno2.add(7);
+        geno2.add(10);
+        geno2.add(11);
+        geno2.add(21);
+        geno2.add(31);
+        geno2.add(41);
+        geno2.add(51);
+        geno2.add(61);
+        geno2.add(71);
 
 
 
         Animal animal1 = new Animal(new Vector2d(1,1),20,geno1,0);
         Animal animal2 = new Animal(new Vector2d(1,1),30,geno2,0);
+        System.out.println(animal1.getGenotype());
+        System.out.println(animal2.getGenotype());
         Genotype genotype12 = new Genotype(animal1, animal2, 8);
+        Animal animal3 = new Animal(new Vector2d(1,1), 30, genotype12.getGenom(), 0);
 
         System.out.println(genotype12.getGenom());
+
+
     }
 }

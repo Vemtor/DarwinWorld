@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+
 public class Animal {
 
     private static final int energyNeededToReproduce = 10;
@@ -29,6 +30,7 @@ public class Animal {
     public Animal(Vector2d position, int energy, List<Integer> genoList){
         this(position,energy,genoList,0);
     }
+
 
 
 
