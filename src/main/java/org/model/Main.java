@@ -39,10 +39,9 @@ public class Main {
         Animal animal2 = new Animal(new Vector2d(1,1),30,geno2,0);
         System.out.println(animal1.getGenotype());
         System.out.println(animal2.getGenotype());
-        Genotype genotype12 = new Genotype(animal1, animal2, 8);
-        Animal animal3 = new Animal(new Vector2d(1,1), 30, genotype12.getGenom(), 0);
+        Animal animal3 = new Animal(new Vector2d(1,1), animal1, animal2);
 
-        System.out.println(genotype12.getGenom());
+        System.out.println(animal3.getGenotype());
 
 
     }

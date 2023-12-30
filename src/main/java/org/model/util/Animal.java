@@ -27,6 +27,12 @@ public class Animal {
         this.birthDate = birthDate;
     }
 
+
+    public Animal(Vector2d position, Animal animal1, Animal animal2){
+        this(position, 0, new Genotype(animal1,animal2, 8).getGenom(), 0);
+
+    }
+
     public Animal(Vector2d position, int energy, List<Integer> genoList){
         this(position,energy,genoList,0);
     }
