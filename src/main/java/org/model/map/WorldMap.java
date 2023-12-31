@@ -78,4 +78,12 @@ public class WorldMap {
     public int getPlantStartNumber() {
         return plantStartNumber;
     }
+
+    public Map<Vector2d, ArrayList<Animal>> getAnimals() {
+        return animals;
+    }
+
+    public Map<Vector2d, Plant> getPlants() {
+        return plants;
+    }
 }

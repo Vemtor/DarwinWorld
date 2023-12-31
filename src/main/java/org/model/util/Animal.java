@@ -2,7 +2,7 @@ package org.model.util;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
+
 
 
 public class Animal {
@@ -18,7 +18,9 @@ public class Animal {
     private int startEnergy;
     private boolean isAlive;
     private List<Integer> genoList;
+    private int currentGenoNum;
 
+    private final int genLength = 8;
 
 
     public Animal(Vector2d position, int energy, List<Integer> genoList, int birthDate){
@@ -81,9 +83,16 @@ public class Animal {
         return this.energy >= energyNeededToReproduce && isAlive;
     }
 
-    public boolean canMove(){
-     //TODO
-     return true;
+    public void nextGenoNum(){
+        currentGenoNum = (currentGenoNum+1)%genLength;
+
+    }
+
+    public void move(){
+        int x = this.genoList.get(currentGenoNum);
+        Vector2d toPosition =
+        if(isAlive && ){
+        }
     }
 
 
