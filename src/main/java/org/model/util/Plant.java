@@ -3,14 +3,18 @@ package org.model.util;
 public class Plant {
     private Vector2d position;
     private int energy;
-    private boolean alvie;
+    private boolean alive;
 
     public Plant(Vector2d position, int energy){
         this.position = position;
         this.energy = energy;
-        this.alvie = true;
-
+        this.alive = true;
     }
+
+    public Plant(Vector2d position){
+        this(position, 1);
+    }
+
 
     public Vector2d getPosition() {
         return position;
@@ -20,7 +24,7 @@ public class Plant {
         return energy;
     }
 
-    public boolean isAlvie() {
-        return alvie;
+    public boolean isAlive() {
+        return alive;
     }
 }

@@ -15,6 +15,7 @@ public class Animal {
     private int eatenFoodCounter;
     private final int birthDate;
     private int deadDate;
+    private int startEnergy;
     private boolean isAlive;
     private List<Integer> genoList;
 
@@ -33,8 +34,8 @@ public class Animal {
 
     }
 
-    public Animal(Vector2d position, int energy, List<Integer> genoList){
-        this(position,energy,genoList,0);
+    public Animal(Vector2d position){
+        this(position,0,new Genotype().getGenom(),0);
     }
 
 

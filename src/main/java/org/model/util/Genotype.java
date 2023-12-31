@@ -1,6 +1,5 @@
 package org.model.util;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,7 +7,7 @@ import java.util.Random;
 public class Genotype {
 
     private final int genLength = 8;
-
+    Random rand = new Random();
     private List<Integer> genom;
 
     public List<Integer> getGenes() {
@@ -29,10 +28,19 @@ public class Genotype {
         return randGenomList;
     }
 
-
+    public List<Integer> generateFullGeno(){
+        int cnt = 0;
+        List<Integer> randGenomList = new ArrayList<>();
+        while(cnt<genLength){
+            int genomDigit = rand.nextInt(genLength);
+            randGenomList.add(genomDigit);
+            cnt++;
+        }
+        return randGenomList;
+    }
 
     public List<Integer> reproduceGeno(Animal a1, Animal a2, int e1, int e2) {
-        Random rand = new Random();
+
         double randomNum = rand.nextDouble();
         List<Integer> g1 = a1.getGenotype();
         List<Integer> g2 = a2.getGenotype();
